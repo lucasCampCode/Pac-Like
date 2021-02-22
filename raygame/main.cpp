@@ -11,11 +11,15 @@
 
 #include "raylib.h"
 #include "Game.h"
+#include "Maze.h"
 #include <Vector2.h>
 
 int main()
 {
 	Game game = Game();
+
+	// Create a maze, add it to the scene, and set it as the current scene
+	game.setCurrentScene(game.addScene(new Maze()));
 
 	game.run();
 
