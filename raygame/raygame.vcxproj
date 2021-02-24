@@ -148,9 +148,12 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="Pac.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -158,8 +161,11 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="Behavior.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
+    <ClInclude Include="Pac.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Wall.h" />

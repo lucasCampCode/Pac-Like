@@ -1,5 +1,6 @@
 #include "Wall.h"
 #include "raylib.h"
+#include <Vector2.h>
 
 void Wall::draw()
 {

@@ -1,8 +1,16 @@
 #include "Maze.h"
+#include "Pac.h"
+#include "KeyboardBehavior.h"
 
 Maze::Maze()
 {
 	generate();
+
+	Pac* player = new Pac(320, 320, 200);
+	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior(20000);
+	player->addBehavior(keyboardBehavior);
+
+	addActor(player);
 }
 
 void Maze::generate()
