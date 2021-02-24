@@ -1,13 +1,16 @@
 #pragma once
 #include "Agent.h"
 
-class Pac : public Agent
+class Ghost : public Agent
 {
 public:
-	Pac(float x, float y, float speed);
+	Ghost(float x, float y, float speed, int color);
 
 	virtual void draw() override;
 
 	virtual void onCollision(Actor* other) override;
+
+private:
+	int m_color = 0xFFFFFFFF;
 };
 

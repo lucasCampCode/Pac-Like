@@ -19,6 +19,7 @@ void Agent::update(float deltaTime)
 
 	// Add force times delta time to velocity
 	setVelocity(getVelocity() + m_force * deltaTime);
+	updateFacing();
 
 	Actor::update(deltaTime);
 }

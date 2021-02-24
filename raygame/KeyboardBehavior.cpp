@@ -4,16 +4,12 @@
 
 void KeyboardBehavior::update(Agent* owner, float deltaTime)
 {
-    MathLibrary::Vector2 force = { 0.0f, 0.0f };
-
-    if (IsKeyDown(KEY_W))
-        force.y = -m_speedIncrement;
-    if (IsKeyDown(KEY_S))
-        force.y = m_speedIncrement;
-    if (IsKeyDown(KEY_A))
-        force.x = -m_speedIncrement;
-    if (IsKeyDown(KEY_D))
-        force.x = m_speedIncrement;
-
-    owner->applyForce(force);
+    if (IsKeyPressed(KEY_W))
+        owner->setVelocity({ 0.0f, -m_speedIncrement });
+    if (IsKeyPressed(KEY_S))
+        owner->setVelocity({ 0.0f, m_speedIncrement });
+    if (IsKeyPressed(KEY_A))
+        owner->setVelocity({ -m_speedIncrement, 0.0f });
+    if (IsKeyPressed(KEY_D))
+        owner->setVelocity({ m_speedIncrement, 0.0f });
 }

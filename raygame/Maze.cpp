@@ -7,8 +7,6 @@ Maze::Maze()
 	generate();
 
 	Pac* player = new Pac(320, 320, 200);
-	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior(20000);
-	player->addBehavior(keyboardBehavior);
 
 	addActor(player);
 }
