@@ -10,6 +10,6 @@ public:
 	virtual void update(Agent* owner, float deltaTime) override;
 
 private:
-	float m_speedIncrement = 50.0f;
+	float m_speedIncrement;
 };
 

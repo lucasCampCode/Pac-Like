@@ -9,6 +9,14 @@
 class Maze : public Scene
 {
 public:
+	/// <summary>
+	/// A single space in a Maze.
+	/// </summary>
+	struct Tile {
+		int x, y;
+	};
+
+public:
 	Maze();
 
 	/// <summary>
@@ -22,6 +30,12 @@ public:
 	/// </summary>
 	void generate();
 
+public:
+	static const int WIDTH = 28;
+	static const int HEIGHT = 31;
+	static const int TILE_SIZE = 32;
+
 private:
-	MathLibrary::Vector2 m_size = { 28, 31 };
+	MathLibrary::Vector2 m_size = { WIDTH, HEIGHT };
+	Tile grid[WIDTH][HEIGHT];
 };

@@ -1,12 +1,16 @@
 #include "Pac.h"
-#include "KeyboardBehavior.h"
 #include "Wall.h"
 #include "raylib.h"
 
-Pac::Pac(float x, float y, float speed):Agent(x, x, 16, speed)
+Pac::Pac(float x, float y, float maxSpeed):Agent(x, y, 16, '@', maxSpeed, maxSpeed)
 {
-	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior(speed * 100);
-	addBehavior(keyboardBehavior);
+	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
+	addBehavior(m_keyboardBehavior);
+}
+
+Pac::~Pac()
+{
+	delete m_keyboardBehavior;
 }
 
 void Pac::draw()

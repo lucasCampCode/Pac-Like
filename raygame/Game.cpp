@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Maze.h"
 #include "raylib.h"
 
 bool Game::m_gameOver = false;
@@ -18,8 +19,8 @@ Game::Game()
 
 void Game::start()
 {
-	int screenWidth = 896;
-	int screenHeight = 992;
+	int screenWidth = Maze::WIDTH * Maze::TILE_SIZE;
+	int screenHeight = Maze::HEIGHT * Maze::TILE_SIZE;
 
 	InitWindow(screenWidth, screenHeight, "Pac-Like");
 	m_camera->offset = { (float)screenWidth / 2, (float)screenHeight / 2 };

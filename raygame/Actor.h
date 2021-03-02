@@ -8,6 +8,7 @@ class Sprite;
 class Actor
 {
 public:
+    Actor();
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions.</param>
@@ -60,7 +61,7 @@ public:
     void setWorldPostion(MathLibrary::Vector2 value);
 
  
-    /// <returns>Returns the position of the actor relative to its parent transform.</returns>
+    /// <returns>The position of the actor relative to its parent transform.</returns>
     MathLibrary::Vector2 getLocalPosition();
 
     /// <summary>
@@ -69,7 +70,7 @@ public:
     /// <param name="value">The new local coordinates to place the actor.</param>
     void setLocalPosition(MathLibrary::Vector2 value);
 
-    /// <returns>Returns a vector representing the speed and direction the actor is moving in.</returns>
+    /// <returns>A vector representing the speed and direction the actor is moving in.</returns>
     MathLibrary::Vector2 getVelocity();
 
     /// <summary>
@@ -78,7 +79,7 @@ public:
     /// <param name="value">The new velocity of the actor.</param>
     void setVelocity(MathLibrary::Vector2 value);
 
-    /// <returns>Returns the force applied to the velocity every update.</returns>
+    /// <returns>The force applied to the velocity every update.</returns>
     MathLibrary::Vector2 getAcceleration();
 
     /// <summary>
@@ -86,6 +87,15 @@ public:
     /// </summary>
     /// <param name="value">The new acceleration value.</param>
     void setAcceleration(MathLibrary::Vector2 value);
+
+    /// <returns>The maximum magnitude of the actor's velocity.</returns>
+    float getMaxSpeed();
+
+    /// <summary>
+    /// Changes the maximum magnitude of the actor's velocity.
+    /// </summary>
+    /// <param name="value">The new maximum speed.</param>
+    void setMaxSpeed(float value);
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -180,7 +190,7 @@ private:
     /// </summary>
     void updateGlobalTransform();
 
-protected:
+private:
     MathLibrary::Matrix3* m_globalTransform;
     MathLibrary::Matrix3* m_localTransform;
     MathLibrary::Matrix3* m_rotation;
@@ -192,7 +202,6 @@ protected:
     float m_maxSpeed;
     char m_icon;
 
-private:
     bool m_started;
     float m_collisionRadius;
     Actor* m_parent;

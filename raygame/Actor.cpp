@@ -4,20 +4,29 @@
 #include "raylib.h"
 #include "Sprite.h"
 
-Actor::Actor(float x, float y, float collisionRadius, char icon = ' ', float maxSpeed = 1)
+Actor::Actor()
 {
     m_globalTransform = new MathLibrary::Matrix3();
     m_localTransform = new MathLibrary::Matrix3();
     m_rotation = new MathLibrary::Matrix3();
     m_translation = new MathLibrary::Matrix3();
     m_scale = new MathLibrary::Matrix3();
-
-    m_icon = icon;
-    setLocalPosition(MathLibrary::Vector2(x,y));
     m_velocity = MathLibrary::Vector2();
-    m_collisionRadius = collisionRadius;
     m_childCount = 0;
+
+    setLocalPosition(MathLibrary::Vector2(0, 0));
+    m_collisionRadius = 0;
+    m_icon = ' ';
+    m_maxSpeed = 1;
+}
+
+Actor::Actor(float x, float y, float collisionRadius, char icon = ' ', float maxSpeed = 1) : Actor()
+{
+    setLocalPosition(MathLibrary::Vector2(x, y));
+    m_collisionRadius = collisionRadius;
+    m_icon = icon;
     m_maxSpeed = maxSpeed;
+
 }
 
 Actor::Actor(float x, float y, float collisionRadius, Sprite* sprite, float maxSpeed = 1) : Actor(x, y, collisionRadius, ' ', maxSpeed)
@@ -86,6 +95,16 @@ MathLibrary::Vector2 Actor::getAcceleration()
 void Actor::setAcceleration(MathLibrary::Vector2 value)
 {
     m_acceleration = value;
+}
+
+float Actor::getMaxSpeed()
+{
+    return m_maxSpeed;
+}
+
+void Actor::setMaxSpeed(float value)
+{
+    m_maxSpeed = value;
 }
 
 void Actor::start()

@@ -6,19 +6,19 @@ Maze::Maze()
 {
 	generate();
 
-	Pac* player = new Pac(320, 320, 200);
+	Pac* player = new Pac(WIDTH / 2 * TILE_SIZE, HEIGHT / 2 * TILE_SIZE, 200);
 
 	addActor(player);
 }
 
 void Maze::generate()
 {
-	for (int x = 0; x < m_size.x * 32; x += 32) {
+	for (int x = 0; x < m_size.x * TILE_SIZE; x += TILE_SIZE) {
 		addActor(new Wall(x, 0));
-		addActor(new Wall(x, m_size.y * 31));
+		addActor(new Wall(x, m_size.y * (TILE_SIZE-1)));
 	}
-	for (int y = 32; y < m_size.y * 31; y += 32) {
+	for (int y = TILE_SIZE; y < m_size.y * (TILE_SIZE - 1); y += TILE_SIZE) {
 		addActor(new Wall(0, y));
-		addActor(new Wall(m_size.x * 31, y));
+		addActor(new Wall(m_size.x * (TILE_SIZE - 1), y));
 	}
 }

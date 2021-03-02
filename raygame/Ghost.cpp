@@ -2,7 +2,7 @@
 #include "Wall.h"
 #include "raylib.h"
 
-Ghost::Ghost(float x, float y, float speed, int color):Agent(x, y, 16, speed)
+Ghost::Ghost(float x, float y, float maxSpeed, int color):Agent(x, y, 16, 'G', maxSpeed, maxSpeed)
 {
 	m_color = color;
 }
