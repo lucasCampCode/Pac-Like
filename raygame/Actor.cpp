@@ -272,13 +272,13 @@ void Actor::update(float deltaTime)
 
 void Actor::draw()
 {
-    DrawCircle(getWorldPosition().x * 32, getWorldPosition().y * 32, 50, BLUE);
+    DrawCircle(getWorldPosition().x, getWorldPosition().y, m_collisionRadius, GetColor((int)this));
     //Draws the actor and a line indicating it facing to the raylib window
     DrawLine(
-        (int)(getWorldPosition().x * 32),
-        (int)(getWorldPosition().y * 32),
-        (int)((getWorldPosition().x + getForward().x) * 32),
-        (int)((getWorldPosition().y + getForward().y) * 32),
+        (int)(getWorldPosition().x),
+        (int)(getWorldPosition().y),
+        (int)((getWorldPosition().x + getForward().x)),
+        (int)((getWorldPosition().y + getForward().y)),
         WHITE
     );
 
@@ -301,7 +301,7 @@ void Actor::updateFacing()
     if (m_velocity.getMagnitude() <= 0)
         return;
 
-    getForward() = m_velocity.getNormalized();
+    setForward(m_velocity.getNormalized());
 }
 
 void Actor::updateGlobalTransform()

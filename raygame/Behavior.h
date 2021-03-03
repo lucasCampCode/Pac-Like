@@ -5,7 +5,6 @@ class Behavior
 {
 public:
 	Behavior() {}
-	virtual ~Behavior() {}
 
 	/// <summary>
 	/// Update the Behavior, affecting its owning Agent where necessary.

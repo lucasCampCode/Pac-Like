@@ -156,6 +156,7 @@
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Pac.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SeekBehavior.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
@@ -169,6 +170,7 @@
     <ClInclude Include="Maze.h" />
     <ClInclude Include="Pac.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SeekBehavior.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
