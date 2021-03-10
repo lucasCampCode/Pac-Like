@@ -1,92 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Pac Header Files">
+      <UniqueIdentifier>{cd47b61b-4bbe-473f-818a-5e81c528d1f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="Pac Source Files">
+      <UniqueIdentifier>{7a28282b-333c-4e5f-bded-f3f4ca6896e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Engine Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Maze.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pac.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Behavior.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KeyboardBehavior.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Engine Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ghost.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pac.cpp">
+      <Filter>Pac Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SeekBehavior.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PathfindBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Maze.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Agent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pac.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Behavior.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardBehavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ghost.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Wall.h">
+      <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SeekBehavior.h">
-      <Filter>Header Files</Filter>
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pac.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardBehavior.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindBehavior.h">
+      <Filter>Pac Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

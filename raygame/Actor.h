@@ -9,25 +9,34 @@ class Actor
 {
 public:
     Actor();
+
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions.</param>
+    /// <param name="maxSpeed">The largest the magnitude of the actors velocity can be.</param>
     /// <param name="icon">The symbol that will appear when drawn</param>
-    /// <param name="maxSpeed">The largest the magnitude of the actors velocity can be.</param>
-    Actor(float x, float y, float collisionRadius, char icon, float maxSpeed);
+    Actor(float x, float y, float collisionRadius, float maxSpeed, char icon);
 
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions.</param>
+    /// <param name="maxSpeed">The largest the magnitude of the actors velocity can be.</param>
+    /// <param name="color">The color of the actor when drawn</param>
+    Actor(float x, float y, float collisionRadius, float maxSpeed, int color);
+
+    /// <param name="x">Position on the x axis</param>
+    /// <param name="y">Position on the y axis</param>
+    /// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions.</param>
+    /// <param name="maxSpeed">The largest the magnitude of the actors velocity can be.</param>
     /// <param name="sprite">That sprite that will be drawn in this actors draw function.</param>
-    Actor(float x, float y, float collisionRadius, Sprite* sprite, float maxSpeed);
+    Actor(float x, float y, float collisionRadius, float maxSpeed, Sprite* sprite);
 
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions.</param>
-    /// <param name="sprite">That path for the sprite that will be drawn in this actors draw function.</param>
     /// <param name="maxSpeed">The largest the magnitude of the actors velocity can be.</param>
-    Actor(float x, float y, float collisionRadius, const char* spriteFilePath, float maxSpeed);
+    /// <param name="sprite">That path for the sprite that will be drawn in this actors draw function.</param>
+    Actor(float x, float y, float collisionRadius, float maxSpeed, const char* spriteFilePath);
 
     /// <summary>
     /// </summary>
@@ -96,6 +105,15 @@ public:
     /// </summary>
     /// <param name="value">The new maximum speed.</param>
     void setMaxSpeed(float value);
+
+    /// <returns>The actor's display color.</returns>
+    int getColor();
+
+    /// <summary>
+    /// Change the display color of the Actor.
+    /// </summary>
+    /// <param name="value">The hex value of the color in 0xRRGGBBAA format.</param>
+    void setColor(int value);
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -201,6 +219,7 @@ private:
     MathLibrary::Vector2 m_acceleration;
     float m_maxSpeed;
     char m_icon;
+    int m_color;
 
     bool m_started;
     float m_collisionRadius;

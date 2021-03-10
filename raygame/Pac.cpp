@@ -3,7 +3,8 @@
 #include "Wall.h"
 #include "raylib.h"
 
-Pac::Pac(float x, float y, float maxSpeed):Agent(x, y, Maze::TILE_SIZE / 2.5, '@', maxSpeed, maxSpeed)
+Pac::Pac(float x, float y, float maxSpeed)
+	: Agent(x, y, Maze::TILE_SIZE / 2.5, maxSpeed, maxSpeed, (int)0xFFFF33FF)
 {
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
@@ -20,7 +21,7 @@ void Pac::draw()
 	MathLibrary::Vector2 position = getWorldPosition();
 	position.x += Maze::TILE_SIZE / 2;
 	position.y += Maze::TILE_SIZE / 2;
-	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(0xFFFF33FF));
+	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(getColor()));
 }
 
 void Pac::onCollision(Actor* other)

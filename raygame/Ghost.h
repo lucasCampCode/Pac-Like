@@ -16,8 +16,6 @@ public:
 	Actor* getTarget() { return m_target; }
 
 private:
-	int m_color = 0xFFFFFFFF;
-
 	SeekBehavior* m_behavior = nullptr;
 	Actor* m_target = nullptr;
 };

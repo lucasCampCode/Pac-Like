@@ -12,6 +12,12 @@ public:
 	/// <param name="deltaTime"></param>
 	virtual void update(Agent* owner, float deltaTime) override;
 
+	/// <summary>
+	/// Draw the current destination.
+	/// </summary>
+	/// <param name="owner">The Agent to which this Behavior belongs</param>
+	virtual void draw(Agent* owner) override;
+
 	void setDestination(MathLibrary::Vector2 destination) { m_destination = destination; }
 	MathLibrary::Vector2 getDestination() { return m_destination; }
 

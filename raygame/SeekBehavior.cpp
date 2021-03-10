@@ -1,4 +1,6 @@
 #include "SeekBehavior.h"
+#include "Maze.h"
+#include "raylib.h"
 
 void SeekBehavior::update(Agent* owner, float deltaTime)
 {
@@ -18,5 +20,13 @@ void SeekBehavior::update(Agent* owner, float deltaTime)
 
 	//Apply the force
 	owner->applyForce(steeringForce);
+}
+
+void SeekBehavior::draw(Agent* owner)
+{
+	MathLibrary::Vector2 position = owner->getWorldPosition();
+	position.x += Maze::TILE_SIZE / 2;
+	position.y += Maze::TILE_SIZE / 2;
+	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor((int)this));
 }
 

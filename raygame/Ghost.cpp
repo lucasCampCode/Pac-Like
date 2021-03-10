@@ -3,10 +3,9 @@
 #include "Wall.h"
 #include "raylib.h"
 
-Ghost::Ghost(float x, float y, float maxSpeed, int color):Agent(x, y, 16, 'G', maxSpeed, maxSpeed)
+Ghost::Ghost(float x, float y, float maxSpeed, int color)
+	: Agent(x, y, Maze::TILE_SIZE / 2.5, maxSpeed, maxSpeed, color)
 {
-	m_color = color;
-
 	m_behavior = new SeekBehavior();
 	addBehavior(m_behavior);
 }
@@ -21,11 +20,11 @@ void Ghost::update(float deltaTime)
 
 void Ghost::draw()
 {
-	//Actor::draw();
+	//Agent::draw();
 	MathLibrary::Vector2 position = getWorldPosition();
 	position.x += Maze::TILE_SIZE / 2;
 	position.y += Maze::TILE_SIZE / 2;
-	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(m_color));
+	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(getColor()));
 }
 
 void Ghost::onCollision(Actor* other)

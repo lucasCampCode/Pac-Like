@@ -4,7 +4,7 @@
 class Wall : public Actor
 {
 public:
-	Wall(float x, float y) : Actor(x, y, 16, 'X', 0) {}
+	Wall(float x, float y) : Actor(x, y, 16, 0, 0x3333CCFF) {}
 
 	void draw() override;
 };

@@ -9,5 +9,5 @@ void Wall::draw()
 	MathLibrary::Vector2 position = getWorldPosition();
 	position.x += Maze::TILE_SIZE / 2;
 	position.y += Maze::TILE_SIZE / 2;
-	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(0x3333CCFF));
+	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(getColor()));
 }

@@ -1,4 +1,3 @@
-
 #include <cmath>
 #include "Actor.h"
 #include "raylib.h"
@@ -6,35 +5,46 @@
 
 Actor::Actor()
 {
+    m_childCount = 0;
+
     m_globalTransform = new MathLibrary::Matrix3();
     m_localTransform = new MathLibrary::Matrix3();
     m_rotation = new MathLibrary::Matrix3();
     m_translation = new MathLibrary::Matrix3();
     m_scale = new MathLibrary::Matrix3();
     m_velocity = MathLibrary::Vector2();
-    m_childCount = 0;
-
-    setLocalPosition(MathLibrary::Vector2(0, 0));
-    m_collisionRadius = 0;
-    m_icon = ' ';
     m_maxSpeed = 1;
+    m_collisionRadius = 0;
+    setLocalPosition(MathLibrary::Vector2(0, 0));
+
+    m_icon = ' ';
+    m_color = 0x00000000;
 }
 
-Actor::Actor(float x, float y, float collisionRadius, char icon = ' ', float maxSpeed = 1) : Actor()
+Actor::Actor(float x, float y, float collisionRadius, float maxSpeed, char icon = ' ')
+    : Actor()
 {
     setLocalPosition(MathLibrary::Vector2(x, y));
     m_collisionRadius = collisionRadius;
-    m_icon = icon;
     m_maxSpeed = maxSpeed;
-
+    m_icon = icon;
+    m_color = 0xFFFFFFFF;
 }
 
-Actor::Actor(float x, float y, float collisionRadius, Sprite* sprite, float maxSpeed = 1) : Actor(x, y, collisionRadius, ' ', maxSpeed)
+Actor::Actor(float x, float y, float collisionRadius, float maxSpeed, int color)
+    : Actor(x, y, collisionRadius, maxSpeed, ' ')
+{
+    m_color = color;
+}
+
+Actor::Actor(float x, float y, float collisionRadius, float maxSpeed, Sprite* sprite)
+    : Actor(x, y, collisionRadius, maxSpeed, ' ')
 {
     m_sprite = sprite;
 }
 
-Actor::Actor(float x, float y, float collisionRadius, const char* spriteFilePath, float maxSpeed = 1) : Actor(x, y, collisionRadius, ' ', maxSpeed)
+Actor::Actor(float x, float y, float collisionRadius, float maxSpeed, const char* spriteFilePath)
+    : Actor(x, y, collisionRadius, maxSpeed, ' ')
 {
     m_sprite = new Sprite(spriteFilePath);
 }
@@ -105,6 +115,16 @@ float Actor::getMaxSpeed()
 void Actor::setMaxSpeed(float value)
 {
     m_maxSpeed = value;
+}
+
+int Actor::getColor()
+{
+    return m_color;
+}
+
+void Actor::setColor(int value)
+{
+    m_color = value;
 }
 
 void Actor::start()
@@ -272,7 +292,7 @@ void Actor::update(float deltaTime)
 
 void Actor::draw()
 {
-    DrawCircle(getWorldPosition().x, getWorldPosition().y, m_collisionRadius, GetColor((int)this));
+    DrawCircle(getWorldPosition().x, getWorldPosition().y, m_collisionRadius, GetColor(m_color));
     //Draws the actor and a line indicating it facing to the raylib window
     DrawLine(
         (int)(getWorldPosition().x),
