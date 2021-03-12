@@ -27,8 +27,11 @@ public:
 	NodeGraph() {}
 
 	std::vector<Node*> findPath(Node* start, Node* end);
+	void drawGraph(Node* start);
 
-	void drawNode();
-	void drawGraph();
+private:
+
+	void drawNode(Node* node, int color = 0x00000000);
+	void drawConnectedNodes(Node* node, std::vector<Node*>* drawnList = nullptr);
 };
 

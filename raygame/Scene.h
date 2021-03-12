@@ -13,7 +13,7 @@ public:
     MathLibrary::Matrix3* getWorld();
 
     /// <summary>
-    /// Adds the given actor to the array of actors so that the scene may call its update and draw functions.
+    /// Adds the given actor to the array of actors so that the scene may call its update and drawGraph functions.
     /// </summary>
     /// <param name="actor">The actor to add to the scene.</param>
     void addActor(Actor* actor);

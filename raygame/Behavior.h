@@ -19,5 +19,11 @@ public:
 	/// </summary>
 	/// <param name="owner">The Agent to which this Behavior belongs</param>
 	virtual void draw(Agent* owner) {}
+
+	bool getEnabled() { return m_enabled; }
+	void setEnabled(bool enabled) { m_enabled = true; }
+
+private:
+	bool m_enabled = true;
 };
 

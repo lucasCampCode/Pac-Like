@@ -154,6 +154,7 @@
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="NodeGraph.cpp" />
     <ClCompile Include="Pac.cpp" />
     <ClCompile Include="PathfindBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
+    <ClInclude Include="NodeGraph.h" />
     <ClInclude Include="Pac.h" />
     <ClInclude Include="PathfindBehavior.h" />
     <ClInclude Include="Scene.h" />

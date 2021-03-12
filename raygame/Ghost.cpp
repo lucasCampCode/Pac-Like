@@ -20,21 +20,20 @@ void Ghost::update(float deltaTime)
 
 void Ghost::draw()
 {
-	//Agent::draw();
-	MathLibrary::Vector2 position = getWorldPosition();
-	position.x += Maze::TILE_SIZE / 2;
-	position.y += Maze::TILE_SIZE / 2;
-	DrawCircle(position.x, position.y, Maze::TILE_SIZE / 2, GetColor(getColor()));
+	Agent::draw();
 }
 
 void Ghost::onCollision(Actor* other)
 {
 	if (Wall* wall = dynamic_cast<Wall*>(other)) {
+		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2, Maze::TILE_SIZE / 2 };
 		MathLibrary::Vector2 position = getWorldPosition();
+		position = position + halfTile;
 		MathLibrary::Vector2 tilePosition = {
 			roundf(position.x / Maze::TILE_SIZE) * Maze::TILE_SIZE,
 			roundf(position.y / Maze::TILE_SIZE) * Maze::TILE_SIZE
 		};
+		tilePosition = tilePosition - halfTile;
 		setWorldPostion(tilePosition);
 
 		setVelocity({ 0, 0 });

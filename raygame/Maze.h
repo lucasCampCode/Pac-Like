@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "Wall.h"
+#include "NodeGraph.h"
 #include <Vector2.h>
 
 /// <summary>
@@ -15,11 +15,14 @@ public:
 	struct Tile {
 		int x;
 		int y;
-		int weight;
+		float cost = 0.0f;
+		NodeGraph::Node* node = nullptr;
 	};
 
 public:
 	Maze();
+
+	virtual void draw() override;
 
 	/// <summary>
 	/// Get the size of the maze.
@@ -55,4 +58,6 @@ public:
 private:
 	MathLibrary::Vector2 m_size = { WIDTH, HEIGHT };
 	Tile m_grid[WIDTH][HEIGHT];
+
+	NodeGraph m_graph;
 };

@@ -59,6 +59,9 @@
     <ClCompile Include="PathfindBehavior.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NodeGraph.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -98,6 +101,9 @@
       <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PathfindBehavior.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeGraph.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
   </ItemGroup>

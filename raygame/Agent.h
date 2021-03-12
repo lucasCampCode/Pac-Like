@@ -23,13 +23,13 @@ public:
 	/// <param name="x">Position on the x axis</param>
 	/// <param name="y">Position on the y axis</param>
 	/// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions</param>
-	/// <param name="sprite">That sprite that will be drawn in this actors draw function</param>
+	/// <param name="sprite">That sprite that will be drawn in this actors drawGraph function</param>
 	/// <param name="maxSpeed">The largest the magnitude of the actors velocity can be</param>
 	Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, Sprite* sprite);
 	/// <param name="x">Position on the x axis</param>
 	/// <param name="y">Position on the y axis</param>
 	/// <param name="collisionRadius">The size of the circle surrounding the actor that will be used to detect collisions</param>
-	/// <param name="sprite">That path for the sprite that will be drawn in this actors draw function</param>
+	/// <param name="sprite">That path for the sprite that will be drawn in this actors drawGraph function</param>
 	/// <param name="maxSpeed">The largest the magnitude of the actors velocity can be</param>
 	Agent(float x, float y, float collisionRadius, float maxSpeed, float maxForce, const char* spriteFilePath);
 
