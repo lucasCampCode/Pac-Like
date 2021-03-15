@@ -34,6 +34,8 @@ Agent::Agent(float x, float y, float collisionRadius, float maxSpeed, float maxF
 
 void Agent::update(float deltaTime)
 {
+	Actor::update(deltaTime);
+
 	// Reset force to zero
 	m_force = { 0,0 };
 
@@ -46,8 +48,6 @@ void Agent::update(float deltaTime)
 	// Add force times delta time to velocity
 	setVelocity(getVelocity() + m_force * deltaTime);
 	updateFacing();
-
-	Actor::update(deltaTime);
 }
 
 void Agent::applyForce(MathLibrary::Vector2 force)

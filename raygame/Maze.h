@@ -16,14 +16,14 @@ public:
 	/// A single space in a Maze.
 	/// </summary>
 	struct Tile {
-		int x;
-		int y;
+		MathLibrary::Vector2 position = { 0, 0 };
 		float cost = 0.0f;
 		NodeGraph::Node* node = nullptr;
 	};
 
 public:
 	Maze();
+	~Maze();
 
 	virtual void draw() override;
 
@@ -63,8 +63,8 @@ private:
 	Tile m_grid[WIDTH][HEIGHT];
 
 	Pac* m_player;
-	Ghost* red;
-	Ghost* green;
-	Ghost* cyan;
-	Ghost* magenta;
+	Ghost* m_red;
+	Ghost* m_green;
+	Ghost* m_blue;
+	Ghost* m_magenta;
 };

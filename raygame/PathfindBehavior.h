@@ -1,8 +1,6 @@
 #pragma once
 #include "Behavior.h"
 #include "NodeGraph.h"
-#include <Vector2.h>
-#include <vector>
 
 class Maze;
 
@@ -25,7 +23,7 @@ public:
 
 private:
 	Maze* m_maze;
-	std::vector<NodeGraph::Node*> m_path;
+	std::deque<NodeGraph::Node*> m_path;
 
 	Actor* m_target = nullptr;
 	bool m_needPath = true;
