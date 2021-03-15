@@ -1,7 +1,4 @@
 #include "Maze.h"
-#include "Wall.h"
-#include "Pac.h"
-#include "Ghost.h"
 
 Maze::Maze()
 {
@@ -18,7 +15,8 @@ Maze::Maze()
 		WIDTH / 4 * TILE_SIZE + (TILE_SIZE / 2),
 		HEIGHT / 4 * TILE_SIZE + (TILE_SIZE / 2),
 		200,
-		0xFF99FFFF
+		0xFF99FFFF,
+		this
 	);
 	addActor(ghost);
 
@@ -27,7 +25,7 @@ Maze::Maze()
 
 void Maze::draw()
 {
-	m_graph.drawGraph(m_grid[0][0].node);
+	//NodeGraph::drawGraph(m_grid[0][0].node);
 	Scene::draw();
 }
 

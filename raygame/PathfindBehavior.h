@@ -1,15 +1,34 @@
 #pragma once
 #include "Behavior.h"
-#include "Maze.h"
+#include "NodeGraph.h"
 #include <Vector2.h>
 #include <vector>
+
+class Maze;
 
 class PathfindBehavior : public Behavior
 {
 public:
-	PathfindBehavior() {}
+	PathfindBehavior(Maze* maze) :m_maze(maze) {}
 
 	virtual void update(Agent* owner, float deltaTime) override;
 	virtual void draw(Agent* owner) override;
+
+	void updatePath(Agent* owner);
+	void updatePath(Agent* owner, MathLibrary::Vector2 destination);
+
+	void setTarget(Actor* target) { m_target = target; }
+	Actor* getTarget() { return m_target; }
+
+	void setColor(int color) { m_color = color; }
+	int getColor() { return m_color; }
+
+private:
+	Maze* m_maze;
+	std::vector<NodeGraph::Node*> m_path;
+
+	Actor* m_target = nullptr;
+	bool m_needPath = true;
+	int m_color = 0xFFFFFFFF;
 };
 

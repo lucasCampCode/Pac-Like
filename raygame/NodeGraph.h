@@ -2,9 +2,8 @@
 #include <Vector2.h>
 #include <vector>
 
-class NodeGraph
+namespace NodeGraph
 {
-public:
 	struct Node;
 
 	struct Edge
@@ -23,13 +22,8 @@ public:
 		std::vector<Edge> connections;
 	};
 
-public:
-	NodeGraph() {}
-
 	std::vector<Node*> findPath(Node* start, Node* end);
 	void drawGraph(Node* start);
-
-private:
 
 	void drawNode(Node* node, int color = 0x00000000);
 	void drawConnectedNodes(Node* node, std::vector<Node*>* drawnList = nullptr);

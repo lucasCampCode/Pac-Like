@@ -1,6 +1,9 @@
 #pragma once
 #include "Scene.h"
 #include "NodeGraph.h"
+#include "Wall.h"
+#include "Pac.h"
+#include "Ghost.h"
 #include <Vector2.h>
 
 /// <summary>
@@ -59,5 +62,9 @@ private:
 	MathLibrary::Vector2 m_size = { WIDTH, HEIGHT };
 	Tile m_grid[WIDTH][HEIGHT];
 
-	NodeGraph m_graph;
+	Pac* m_player;
+	Ghost* red;
+	Ghost* green;
+	Ghost* cyan;
+	Ghost* magenta;
 };

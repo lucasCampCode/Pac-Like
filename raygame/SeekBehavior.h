@@ -18,10 +18,10 @@ public:
 	/// <param name="owner">The Agent to which this Behavior belongs</param>
 	virtual void draw(Agent* owner) override;
 
-	void setDestination(MathLibrary::Vector2 destination) { m_destination = destination; }
-	MathLibrary::Vector2 getDestination() { return m_destination; }
+	void setTarget(Actor* target) { m_target = target; }
+	Actor* getTarget() { return m_target; }
 
 private:
-	MathLibrary::Vector2 m_destination;
+	Actor* m_target = nullptr;
 };
 

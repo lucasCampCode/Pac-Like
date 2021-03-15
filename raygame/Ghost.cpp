@@ -3,18 +3,23 @@
 #include "Wall.h"
 #include "raylib.h"
 
-Ghost::Ghost(float x, float y, float maxSpeed, int color)
+Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	: Agent(x, y, Maze::TILE_SIZE / 2.5, maxSpeed, maxSpeed, color)
 {
-	m_behavior = new SeekBehavior();
-	addBehavior(m_behavior);
+	m_maze = maze;
+	m_seekBehavior = new SeekBehavior();
+	m_pathfindBehavior = new PathfindBehavior(maze);
+	addBehavior(m_seekBehavior);
+}
+
+Ghost::~Ghost()
+{
+	delete m_seekBehavior;
+	delete m_pathfindBehavior;
 }
 
 void Ghost::update(float deltaTime)
 {
-	if (m_target != nullptr)
-		m_behavior->setDestination(m_target->getWorldPosition());
-
 	Agent::update(deltaTime);
 }
 
@@ -38,4 +43,15 @@ void Ghost::onCollision(Actor* other)
 
 		setVelocity({ 0, 0 });
 	}
+}
+
+void Ghost::setTarget(Actor* target)
+{
+	m_target = target;
+	m_seekBehavior->setTarget(target);
+}
+
+Actor* Ghost::getTarget()
+{
+	return m_target;
 }
