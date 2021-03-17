@@ -5,16 +5,17 @@
 
 Actor::Actor()
 {
-    m_childCount = 0;
-
     m_globalTransform = new MathLibrary::Matrix3();
     m_localTransform = new MathLibrary::Matrix3();
+
     m_rotation = new MathLibrary::Matrix3();
     m_translation = new MathLibrary::Matrix3();
     m_scale = new MathLibrary::Matrix3();
+
     m_velocity = MathLibrary::Vector2();
-    m_maxSpeed = 1;
+    m_acceleration = MathLibrary::Vector2();
     m_collisionRadius = 0;
+    m_maxSpeed = 1;
     setLocalPosition(MathLibrary::Vector2(0, 0));
 
     m_icon = ' ';
@@ -24,7 +25,11 @@ Actor::Actor()
 Actor::Actor(float x, float y, float collisionRadius, float maxSpeed, char icon = ' ')
     : Actor()
 {
+    // Set the position and update transforms
     setLocalPosition(MathLibrary::Vector2(x, y));
+    *m_localTransform = *m_translation * *m_rotation * *m_scale;
+    updateGlobalTransform();
+
     m_collisionRadius = collisionRadius;
     m_maxSpeed = maxSpeed;
     m_icon = icon;
@@ -87,46 +92,6 @@ void Actor::setLocalPosition(MathLibrary::Vector2 value)
     *m_translation = MathLibrary::Matrix3::createTranslation(value);
 }
 
-MathLibrary::Vector2 Actor::getVelocity()
-{
-    return m_velocity;
-}
-
-void Actor::setVelocity(MathLibrary::Vector2 value)
-{
-    m_velocity = value;
-}
-
-MathLibrary::Vector2 Actor::getAcceleration()
-{
-	return m_acceleration;
-}
-
-void Actor::setAcceleration(MathLibrary::Vector2 value)
-{
-    m_acceleration = value;
-}
-
-float Actor::getMaxSpeed()
-{
-    return m_maxSpeed;
-}
-
-void Actor::setMaxSpeed(float value)
-{
-    m_maxSpeed = value;
-}
-
-int Actor::getColor()
-{
-    return m_color;
-}
-
-void Actor::setColor(int value)
-{
-    m_color = value;
-}
-
 void Actor::start()
 {
     m_started = true;
@@ -134,91 +99,23 @@ void Actor::start()
 
 void Actor::addChild(Actor* child)
 {
-    //Create a new array with a size one greater than our old array
-    Actor** appendedArray = new Actor*[m_childCount + 1];
-    //Copy the values from the old array to the new array
-    for (int i = 0; i < m_childCount; i++)
-    {
-        appendedArray[i] = m_children[i];
-    }
-
-    child->m_parent = this;
-
-    //Set the last value in the new array to be the actor we want to add
-    appendedArray[m_childCount] = child;
-    //Set old array to hold the values of the new array
-    m_children = appendedArray;
-    m_childCount++;
+    m_children.push_back(child);
 }
 
-bool Actor::removeChild(int index)
+void Actor::removeChild(int index)
 {
-    //Check to see if the index is outside the bounds of our array
-    if (index < 0 || index >= m_childCount)
-    {
-        return false;
-    }
-
-    bool actorRemoved = false;
-
-    //Create a new array with a size one less than our old array 
-    Actor** newArray = new Actor * [m_childCount - 1];
-    //Create variable to access tempArray index
-    int j = 0;
-    //Copy values from the old array to the new array
-    for (int i = 0; i < m_childCount; i++)
-    {
-        //If the current index is not the index that needs to be removed,
-        //add the value into the old array and increment j
-        if (i != index)
-        {
-            newArray[j] = m_children[i];
-            j++;
-        }
-        else
-        {
-            actorRemoved = true;
-        }
-    }
-    m_children[index]->m_parent = nullptr;
-    //Set the old array to be the tempArray
-    m_children = newArray;
-    m_childCount--;
-    return actorRemoved;
+    m_children.erase(m_children.begin() + index);
 }
 
-bool Actor::removeChild(Actor* child)
+void Actor::removeChild(Actor* child)
 {
-    //Check to see if the actor was null
-    if (!child)
+    for (int i = 0; i < m_children.size(); i++)
     {
-        return false;
-    }
-
-    bool actorRemoved = false;
-    //Create a new array with a size one less than our old array
-    Actor** newArray = new Actor * [m_childCount - 1];
-    //Create variable to access tempArray index
-    int j = 0;
-    //Copy values from the old array to the new array
-    for (int i = 0; i < m_childCount; i++)
-    {
-        if (child != m_children[i])
-        {
-            newArray[j] = m_children[i];
-            j++;
-        }
-        else
-        {
-            actorRemoved = true;
+        if (m_children[i] = child) {
+            m_children.erase(m_children.begin() + i);
+            break;
         }
     }
-    child->m_parent = nullptr;
-    //Set the old array to the new array
-    m_children = newArray;
-    m_childCount--;
-    //Return whether or not the removal was successful
-    return actorRemoved;
 }
 
 void Actor::setScale(MathLibrary::Vector2 scale)
@@ -331,7 +228,7 @@ void Actor::updateGlobalTransform()
     else
         *m_globalTransform = *m_localTransform;
 
-    for (int i = 0; i < m_childCount; i++)
+    for (int i = 0; i < m_children.size(); i++)
     {
         m_children[i]->updateGlobalTransform();
     }

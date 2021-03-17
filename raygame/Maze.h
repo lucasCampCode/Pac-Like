@@ -17,7 +17,7 @@ public:
 	/// </summary>
 	struct Tile {
 		MathLibrary::Vector2 position = { 0, 0 };
-		float cost = 0.0f;
+		float cost = 1.0f;
 		NodeGraph::Node* node = nullptr;
 	};
 

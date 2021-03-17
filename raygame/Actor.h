@@ -2,6 +2,7 @@
 
 #include <Vector2.h>
 #include <Matrix3.h>
+#include <vector>
 
 class Sprite;
 
@@ -80,40 +81,40 @@ public:
     void setLocalPosition(MathLibrary::Vector2 value);
 
     /// <returns>A vector representing the speed and direction the actor is moving in.</returns>
-    MathLibrary::Vector2 getVelocity();
+    MathLibrary::Vector2 getVelocity() { return m_velocity; }
 
     /// <summary>
     /// Instantly changes the velocity to the new value given.
     /// </summary>
     /// <param name="value">The new velocity of the actor.</param>
-    void setVelocity(MathLibrary::Vector2 value);
+    void setVelocity(MathLibrary::Vector2 value) { m_velocity = value; }
 
     /// <returns>The force applied to the velocity every update.</returns>
-    MathLibrary::Vector2 getAcceleration();
+    MathLibrary::Vector2 getAcceleration() { return m_acceleration; }
 
     /// <summary>
     /// Instantly changes the force added every frame to the value given.
     /// </summary>
     /// <param name="value">The new acceleration value.</param>
-    void setAcceleration(MathLibrary::Vector2 value);
+    void setAcceleration(MathLibrary::Vector2 value) { m_acceleration = value; }
 
     /// <returns>The maximum magnitude of the actor's velocity.</returns>
-    float getMaxSpeed();
+    float getMaxSpeed() { return m_maxSpeed; }
 
     /// <summary>
     /// Changes the maximum magnitude of the actor's velocity.
     /// </summary>
     /// <param name="value">The new maximum speed.</param>
-    void setMaxSpeed(float value);
+    void setMaxSpeed(float value) { m_maxSpeed = value; }
 
     /// <returns>The actor's display color.</returns>
-    int getColor();
+    int getColor() { return m_color; }
 
     /// <summary>
     /// Change the display color of the Actor.
     /// </summary>
     /// <param name="value">The hex value of the color in 0xRRGGBBAA format.</param>
-    void setColor(int value);
+    void setColor(int value) { m_color = value; }
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -127,24 +128,22 @@ public:
     void addChild(Actor* child);
 
     /// <summary>
-    /// Finds an actor at the given index and sets that actor's parent to be nullptr. DOES NOT DELETE THE CHILD!!
+    /// Finds an actor at the given index and sets that actor's parent to be nullptr. Does not delete the child.
     /// </summary>
     /// <param name="index">The index in the children arrray to remove.</param>
-    /// <returns>Returns false if the index is out of bounds.</returns>
-    bool removeChild(int index);
+    void removeChild(int index);
 
     /// <summary>
-    /// Sets the given actor's parent to be nullptr. DOES NOT DELETE THE CHILD!!
+    /// Sets the given actor's parent to be nullptr. Does not delete the child.
     /// </summary>
     /// <param name="child">The child to look for in the array to remove.</param>
-    /// <returns>Returns false if the actor isn't in the list.</returns>
-    bool removeChild(Actor* child);
+    void removeChild(Actor* child);
 
     /// <returns>The amount of children attached to this actor.</returns>
-    int getChildCount() { return m_childCount; }
+    int getChildCount() { return m_children.size(); }
 
-    /// <returns>The array containing the children attached to this actor.</returns>
-    Actor** getChildren() { return m_children; }
+    /// <returns>A container of the children attached to this actor.</returns>
+    std::vector<Actor*> getChildren() { return m_children; }
 
     /// <summary>
     /// Changes the scale of the object to be the values given.
@@ -214,17 +213,17 @@ private:
     MathLibrary::Matrix3* m_rotation;
     MathLibrary::Matrix3* m_translation;
     MathLibrary::Matrix3* m_scale;
-    Actor** m_children;
     MathLibrary::Vector2 m_velocity;
     MathLibrary::Vector2 m_acceleration;
     float m_maxSpeed;
+    float m_collisionRadius;
     char m_icon;
     int m_color;
 
-    bool m_started;
-    float m_collisionRadius;
-    Actor* m_parent;
-    int m_childCount;
-    Sprite* m_sprite;
+    bool m_started = false;
+    Actor* m_parent = nullptr;
+    Sprite* m_sprite = nullptr;
+
+    std::vector<Actor*> m_children;
 };
 

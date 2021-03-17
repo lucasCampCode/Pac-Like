@@ -25,9 +25,8 @@ void Ghost::update(float deltaTime)
 
 void Ghost::draw()
 {
-	Agent::draw();
-
 	m_pathfindBehavior->draw(this);
+	Agent::draw();
 }
 
 void Ghost::onCollision(Actor* other)

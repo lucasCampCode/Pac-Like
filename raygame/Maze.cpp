@@ -13,7 +13,7 @@ Maze::Maze()
 		WIDTH / 4 * TILE_SIZE + (TILE_SIZE / 2),
 		HEIGHT / 4 * TILE_SIZE + (TILE_SIZE / 2),
 		200,
-		0xFF9999FF,
+		0xFF6666FF,
 		this
 	);
 	m_red->setTarget(m_player);
@@ -55,10 +55,10 @@ void Maze::generate()
 			// Designate walls and open spaces
 			if (x == 0 || x == m_size.x - 1 || y == 0 || y == m_size.y - 1) {
 				addActor(new Wall(currentTile.node->position.x, currentTile.node->position.y)); // LEAK
-				currentTile.cost = 1.0f;
+				currentTile.cost = 100.0f;
 			}
 			else {
-				currentTile.cost = 0.0f;
+				currentTile.cost = 1.000f;
 			}
 			// Add node to graph
 			if (x > 0) { // west connection
