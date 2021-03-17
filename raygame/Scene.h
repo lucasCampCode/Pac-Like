@@ -1,5 +1,6 @@
 #pragma once
 #include "Actor.h"
+#include <vector>
 
 class Scene
 {
@@ -23,14 +24,14 @@ public:
     /// </summary>
     /// <param name="index">The index the actor is in the scene's array.</param>
     /// <returns>False if the index given is out of bounds.</returns>
-    bool removeActor(int index);
+    void removeActor(int index);
 
     /// <summary>
     /// Removes the actor given if it's in the array. DOES NOT DELETE THE ACTOR!!!
     /// </summary>
     /// <param name="actor">The actor to look for in the scene's array.</param>
     /// <returns>False if the actor is a nullptr or isn't in the array.</returns>
-    bool removeActor(Actor* actor);
+    void removeActor(Actor* actor);
 
     virtual void start();
 
@@ -48,9 +49,9 @@ public:
     virtual void end();
 
 private:
-    Actor** m_actors;
+    std::vector<Actor*> m_actors;
     MathLibrary::Matrix3* m_world;
-    bool m_started;
-    int m_actorCount;
+
+    bool m_started = false;
 };
 
