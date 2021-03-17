@@ -4,7 +4,7 @@
 #include "raylib.h"
 
 Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
-	: Agent(x, y, Maze::TILE_SIZE / 2.5, maxSpeed, maxSpeed, color)
+	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, color)
 {
 	m_maze = maze;
 	m_seekBehavior = new SeekBehavior();
