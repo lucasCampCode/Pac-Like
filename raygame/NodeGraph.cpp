@@ -3,6 +3,7 @@
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
+	// Find a path from start to end (The current implementation is obviously insufficient)
 	std::deque<Node*> path;
 	path.push_back(start);
 	path.push_back(end);

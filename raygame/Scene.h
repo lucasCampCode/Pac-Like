@@ -24,14 +24,14 @@ public:
     /// </summary>
     /// <param name="index">The index the actor is in the scene's array.</param>
     /// <returns>False if the index given is out of bounds.</returns>
-    void removeActor(int index);
+    bool removeActor(int index);
 
     /// <summary>
     /// Removes the actor given if it's in the array. DOES NOT DELETE THE ACTOR!!!
     /// </summary>
     /// <param name="actor">The actor to look for in the scene's array.</param>
     /// <returns>False if the actor is a nullptr or isn't in the array.</returns>
-    void removeActor(Actor* actor);
+    bool removeActor(Actor* actor);
 
     virtual void start();
 

@@ -21,6 +21,9 @@ public:
 	void setColor(int color) { m_color = color; }
 	int getColor() { return m_color; }
 
+protected:
+	virtual MathLibrary::Vector2 findDestination();
+
 private:
 	Maze* m_maze;
 	std::deque<NodeGraph::Node*> m_path;

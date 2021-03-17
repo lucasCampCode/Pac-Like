@@ -140,7 +140,7 @@ public:
     void removeChild(Actor* child);
 
     /// <returns>The amount of children attached to this actor.</returns>
-    int getChildCount() { return m_children.size(); }
+    int getChildCount() { return (int)m_children.size(); }
 
     /// <returns>A container of the children attached to this actor.</returns>
     std::vector<Actor*> getChildren() { return m_children; }

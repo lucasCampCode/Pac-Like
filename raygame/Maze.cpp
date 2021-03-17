@@ -26,6 +26,14 @@ Maze::~Maze()
 {
 	delete m_player;
 	delete m_red;
+	delete m_green;
+	delete m_blue;
+	delete m_magenta;
+	for (int y = 0; y < m_size.y; y++) {
+		for (int x = 0; x < m_size.x; x++) {
+			delete m_grid[x][y].node;
+		}
+	}
 }
 
 void Maze::draw()

@@ -1,6 +1,7 @@
 #pragma once
 #include <Vector2.h>
 #include <deque>
+#include <vector>
 
 namespace NodeGraph
 {
@@ -19,13 +20,13 @@ namespace NodeGraph
 		float gScore;
 		Node* previous;
 
-		std::deque<Edge> connections;
+		std::vector<Edge> connections;
 	};
 
 	std::deque<Node*> findPath(Node* start, Node* end);
 	void drawGraph(Node* start);
 
-	void drawNode(Node* node, int color = 0x00000000);
+	void drawNode(Node* node, int color = 0xFFFFFFFF);
 	void drawConnectedNodes(Node* node, std::deque<Node*>* drawnList = nullptr);
 };
 

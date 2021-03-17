@@ -15,20 +15,25 @@ void Scene::addActor(Actor* actor)
     m_actors.push_back(actor);
 }
 
-void Scene::removeActor(int index)
+bool Scene::removeActor(int index)
 {
-    m_actors.erase(m_actors.begin() + index);
+    if (index < m_actors.size()) {
+        m_actors.erase(m_actors.begin() + index);
+        return true;
+    }
+    return false;
 }
 
-void Scene::removeActor(Actor* actor)
+bool Scene::removeActor(Actor* actor)
 {
     for (int i = 0; i < m_actors.size(); i++)
     {
         if (m_actors[i] = actor) {
             m_actors.erase(m_actors.begin() + i);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
 void Scene::start()

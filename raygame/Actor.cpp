@@ -189,7 +189,7 @@ void Actor::update(float deltaTime)
 
 void Actor::draw()
 {
-    DrawCircle(getWorldPosition().x, getWorldPosition().y, m_collisionRadius, GetColor(m_color));
+    DrawCircle((int)getWorldPosition().x, (int)getWorldPosition().y, m_collisionRadius, GetColor(m_color));
     //Draws the actor and a line indicating it facing to the raylib window
     DrawLine(
         (int)(getWorldPosition().x),

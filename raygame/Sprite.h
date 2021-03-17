@@ -1,6 +1,7 @@
 #pragma once
+#include <Matrix3.h>
 
-class Texture2D;
+struct Texture2D;
 
 class Sprite
 {
@@ -47,6 +48,6 @@ public:
     void draw(MathLibrary::Matrix3 transform);
 
 private:
-    Texture2D* m_texture;
+    Texture2D* m_texture = nullptr;
 };
 
