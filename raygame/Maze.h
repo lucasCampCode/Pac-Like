@@ -16,14 +16,19 @@ public:
 	/// A single space in a Maze.
 	/// </summary>
 	struct Tile {
-		MathLibrary::Vector2 position = { 0, 0 };
+		int x;
+		int y;
 		float cost = 1.0f;
 		Actor* actor = nullptr;
 		NodeGraph::Node* node = nullptr;
 	};
 
+	static const int WIDTH = 28;
+	static const int HEIGHT = 31;
+	static const int TILE_SIZE = 32;
+
 public:
-	Maze();
+	Maze(float map[Maze::WIDTH][Maze::HEIGHT]);
 	~Maze();
 
 	virtual void draw() override;
@@ -52,12 +57,7 @@ private:
 	/// <summary>
 	/// Generate a new grid of Walls.
 	/// </summary>
-	void generate();
-
-public:
-	static const int WIDTH = 28;
-	static const int HEIGHT = 31;
-	static const int TILE_SIZE = 32;
+	void generate(float grid[Maze::WIDTH][Maze::HEIGHT]);
 
 private:
 	MathLibrary::Vector2 m_size = { WIDTH, HEIGHT };

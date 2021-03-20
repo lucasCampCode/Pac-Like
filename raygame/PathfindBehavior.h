@@ -22,7 +22,7 @@ public:
 	int getColor() { return m_color; }
 
 protected:
-	virtual MathLibrary::Vector2 findDestination();
+	virtual MathLibrary::Vector2 findDestination(Agent* owner) = 0;
 
 private:
 	Maze* m_maze;

@@ -7,14 +7,13 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, color)
 {
 	m_maze = maze;
-	m_seekBehavior = new SeekBehavior();
-	m_pathfindBehavior = new PathfindBehavior(maze);
+	m_pathfindBehavior = new SeekPathBehavior(maze);
+	m_pathfindBehavior->setColor(color);
 	addBehavior(m_pathfindBehavior);
 }
 
 Ghost::~Ghost()
 {
-	delete m_seekBehavior;
 	delete m_pathfindBehavior;
 }
 
@@ -49,7 +48,6 @@ void Ghost::onCollision(Actor* other)
 void Ghost::setTarget(Actor* target)
 {
 	m_target = target;
-	m_seekBehavior->setTarget(target);
 	m_pathfindBehavior->setTarget(target);
 }
 
