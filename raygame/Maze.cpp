@@ -38,7 +38,7 @@ Maze::Tile Maze::getTile(MathLibrary::Vector2 position)
 	if (x >= 0 && x < Maze::WIDTH && y >= 0 && y < Maze::HEIGHT)
 		return m_grid[x][y];
 	else
-		return Tile{x, y};
+		return m_grid[0][0];
 }
 
 MathLibrary::Vector2 Maze::getPosition(Tile tile)
