@@ -56,9 +56,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PathfindBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NodeGraph.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
@@ -66,6 +63,9 @@
       <Filter>Pac Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SeekPathBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PathfindBehavior.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -106,9 +106,6 @@
     <ClInclude Include="Ghost.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PathfindBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NodeGraph.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
@@ -116,6 +113,9 @@
       <Filter>Pac Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SeekPathBehavior.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindBehavior.h">
       <Filter>Engine Header Files</Filter>
     </ClInclude>
   </ItemGroup>

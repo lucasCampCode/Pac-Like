@@ -4,7 +4,7 @@
 #include "raylib.h"
 
 Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
-	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, color)
+	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, color)
 {
 	m_maze = maze;
 	m_pathfindBehavior = new SeekPathBehavior(maze);
@@ -31,7 +31,7 @@ void Ghost::draw()
 void Ghost::onCollision(Actor* other)
 {
 	if (Wall* wall = dynamic_cast<Wall*>(other)) {
-		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2, Maze::TILE_SIZE / 2 };
+		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2.0f, Maze::TILE_SIZE / 2.0f };
 		MathLibrary::Vector2 position = getWorldPosition();
 		position = position + halfTile;
 		MathLibrary::Vector2 tilePosition = {

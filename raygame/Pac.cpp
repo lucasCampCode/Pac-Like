@@ -4,7 +4,7 @@
 #include "raylib.h"
 
 Pac::Pac(float x, float y, float maxSpeed)
-	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
+	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
 {
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
@@ -23,7 +23,7 @@ void Pac::draw()
 void Pac::onCollision(Actor* other)
 {
 	if (Wall* wall = dynamic_cast<Wall*>(other)) {
-		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2, Maze::TILE_SIZE / 2 };
+		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2.0f, Maze::TILE_SIZE / 2.0f };
 		MathLibrary::Vector2 position = getWorldPosition();
 		position = position + halfTile;
 		MathLibrary::Vector2 tilePosition = {

@@ -4,6 +4,7 @@
 #include <vector>
 
 class Behavior;
+
 class Agent : public Actor
 {
 public:

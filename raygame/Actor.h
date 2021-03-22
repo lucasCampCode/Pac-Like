@@ -53,7 +53,6 @@ public:
     /// </summary>
     /// <returns>The current orientation of this actors z axis.</returns>
     MathLibrary::Vector2 getForward();
-
     /// <summary>
     /// Rotates the object until its forward matches the value given normalized.
     /// </summary>
@@ -63,17 +62,14 @@ public:
     
     /// <returns>A vector representing the position of the object in the world without considering its parent.</returns>
     MathLibrary::Vector2 getWorldPosition();
-
     /// <summary>
     /// Sets the world position of the actor.
     /// </summary>
     /// <param name="value">The new world coordinates to place the actor.</param>
     void setWorldPostion(MathLibrary::Vector2 value);
 
- 
     /// <returns>The position of the actor relative to its parent transform.</returns>
     MathLibrary::Vector2 getLocalPosition();
-
     /// <summary>
     /// Sets the position of the actor relative to its parent transform.
     /// </summary>
@@ -82,7 +78,6 @@ public:
 
     /// <returns>A vector representing the speed and direction the actor is moving in.</returns>
     MathLibrary::Vector2 getVelocity() { return m_velocity; }
-
     /// <summary>
     /// Instantly changes the velocity to the new value given.
     /// </summary>
@@ -91,7 +86,6 @@ public:
 
     /// <returns>The force applied to the velocity every update.</returns>
     MathLibrary::Vector2 getAcceleration() { return m_acceleration; }
-
     /// <summary>
     /// Instantly changes the force added every frame to the value given.
     /// </summary>
@@ -100,7 +94,6 @@ public:
 
     /// <returns>The maximum magnitude of the actor's velocity.</returns>
     float getMaxSpeed() { return m_maxSpeed; }
-
     /// <summary>
     /// Changes the maximum magnitude of the actor's velocity.
     /// </summary>
@@ -109,12 +102,19 @@ public:
 
     /// <returns>The actor's display color.</returns>
     int getColor() { return m_color; }
-
     /// <summary>
-    /// Change the display color of the Actor.
+    /// Change the display color of the actor.
     /// </summary>
     /// <param name="value">The hex value of the color in 0xRRGGBBAA format.</param>
     void setColor(int value) { m_color = value; }
+
+    /// <returns>Whether collisions will be checked from this actor to others.</returns>
+    bool getStatic() { return m_static; }
+    /// <summary>
+    /// Change whether collisions will be checked from this actor to others.
+    /// </summary>
+    /// <param name="value">Whether to check collisions.</param>
+    void setStatic(bool value) { m_static = value; }
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -221,6 +221,7 @@ private:
     int m_color;
 
     bool m_started = false;
+    bool m_static = true;
     Actor* m_parent = nullptr;
     Sprite* m_sprite = nullptr;
 

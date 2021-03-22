@@ -5,6 +5,9 @@
 class Pac : public Agent
 {
 public:
+	/// <param name="x">The x-position</param>
+	/// <param name="y">The y-position</param>
+	/// <param name="speed">The maximum movement speed (magnitude)</param>
 	Pac(float x, float y, float speed);
 	~Pac();
 

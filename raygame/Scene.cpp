@@ -12,12 +12,13 @@ MathLibrary::Matrix3* Scene::getWorld()
 
 void Scene::addActor(Actor* actor)
 {
+    if (actor == nullptr) return;
     m_actors.push_back(actor);
 }
 
 bool Scene::removeActor(int index)
 {
-    if (index < m_actors.size()) {
+    if (index >= 0 && index < m_actors.size()) {
         m_actors.erase(m_actors.begin() + index);
         return true;
     }
@@ -26,6 +27,7 @@ bool Scene::removeActor(int index)
 
 bool Scene::removeActor(Actor* actor)
 {
+    if (actor == nullptr) return false;
     for (int i = 0; i < m_actors.size(); i++)
     {
         if (m_actors[i] = actor) {
@@ -45,6 +47,10 @@ void Scene::checkCollision()
 {
     for (int i = 0; i < m_actors.size(); i++)
     {
+        //Skip this actor if it doesn't collide
+        if (!m_actors[i]->getStatic())
+            continue;
+        //Check this actor against each other actor
         for (int j = 0; j < m_actors.size(); j++)
         {
             if (i >= m_actors.size())
