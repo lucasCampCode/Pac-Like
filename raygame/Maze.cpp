@@ -46,6 +46,8 @@ MathLibrary::Vector2 Maze::getPosition(Tile tile)
 	return MathLibrary::Vector2{ tile.x * TILE_SIZE + (TILE_SIZE / 2.0f), tile.y * TILE_SIZE + (TILE_SIZE / 2.0f) };
 }
 
+
+
 Maze::Tile Maze::createTile(int x, int y, TileKey key)
 {
 	// Create a new tile at the given location

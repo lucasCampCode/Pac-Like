@@ -18,6 +18,8 @@ namespace NodeGraph
 		MathLibrary::Vector2 position;
 
 		float gScore;
+		float hScore;
+		float fScore;
 		Node* previous;
 
 		std::vector<Edge> connections;
@@ -52,5 +54,22 @@ namespace NodeGraph
 	/// <param name="node">The node to start</param>
 	/// <param name="drawnList">Nodes that have already been drawn</param>
 	void drawConnectedNodes(Node* node, std::deque<Node*>* drawnList = nullptr);
+
+	/// <summary>
+	/// checks to see if a node is in a list of nodes
+	/// </summary>
+	/// <param name="list"></param>
+	/// <param name="node"></param>
+	/// <returns></returns>
+	bool isInList(std::deque<Node*> list, Node* node);
+
+	/// <summary>
+	/// gives how far the current node is to the goal
+	/// </summary>
+	/// <param name="currentNode"></param>
+	/// <param name="end"></param>
+	/// <returns></returns>
+	float updateHScore(Node* currentNode, Node* end);
+
 };
 

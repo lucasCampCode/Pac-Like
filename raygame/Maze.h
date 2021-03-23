@@ -35,9 +35,9 @@ public:
 		NodeGraph::Node* node = nullptr;
 	};
 
-	static const int WIDTH = 28;
-	static const int HEIGHT = 31;
-	static const int TILE_SIZE = 32;
+	static const int WIDTH = 56;
+	static const int HEIGHT = 62;
+	static const int TILE_SIZE = 16;
 
 public:
 	/// <param name="map">A 2D array of TileKeys arranged height by width</param>
@@ -65,6 +65,7 @@ public:
 	/// <param name="tile">The tile to check</param>
 	/// <returns>A Vector2 with the position of the tile</returns>
 	MathLibrary::Vector2 getPosition(Tile tile);
+
 
 protected:
 	/// <summary>

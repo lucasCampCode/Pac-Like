@@ -172,7 +172,7 @@
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="NodeGraph.cpp" />
     <ClCompile Include="Pac.cpp" />
-    <ClCompile Include="PathfindBehavior.cpp" />
+    <ClCompile Include="PathFindBehavior.cpp" />
     <ClCompile Include="PursuePathBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />

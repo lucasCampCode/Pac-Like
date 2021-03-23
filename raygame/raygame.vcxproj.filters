@@ -65,7 +65,7 @@
     <ClCompile Include="SeekPathBehavior.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PathfindBehavior.cpp">
+    <ClCompile Include="PathFindBehavior.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
   </ItemGroup>
