@@ -51,31 +51,27 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		open.pop_front();
 		//Add the first item to the closed list
 		closed.push_back(currentNode);
+
 		//Loop through all of the edges for the iterator
 		for (int i = 0; i < currentNode->connections.size(); i++)
 		{
 			//Create a node pointer to store the other end of the edge
 			Node* currentEdgeEnd = currentNode->connections[i].target;
 
-			float gScore = 0;
-			float hScore = 0;
-			float fScore = 0;
-
-			//Check if current node is in the closed list
-			if (isInList(closed, currentNode))
+			//Check if current node is not in the closed list
+			if (!isInList(closed, currentEdgeEnd))
 			{
 				//Create an int and set it to be the g score of the iterator plus the cost of the edge
-				gScore = currentNode->gScore + currentNode->connections[i].cost;
+				float gScore = currentNode->gScore + currentNode->connections[i].cost;
 				//Create a float and set it to be the h score of the node at the end of the edge
-				hScore = updateHScore(currentEdgeEnd, end);
+				float hScore = updateHScore(currentEdgeEnd, end);
 				//Create a float for the f score and set it to be the g score combined with the h score
-				fScore = gScore + hScore;
-			}
-			if (!isInList(open, currentEdgeEnd))
-			{//Check if the node at the end of the edge is not in the open list
-				if (!isInList(closed,currentEdgeEnd))
-				{
-					//Set the nodes g score to be the g score calculated earlier
+				float fScore = gScore + hScore;
+
+				if (!isInList(open, currentEdgeEnd))
+				{//Check if the node at the end of the edge is not in the open list
+
+						//Set the nodes g score to be the g score calculated earlier
 					currentEdgeEnd->gScore = gScore;
 					//Set the nodes h score to be the h score calculated earlier
 					currentEdgeEnd->hScore = hScore;
@@ -86,11 +82,10 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 					//Add the node to the open list
 					open.push_back(currentEdgeEnd);
 				}
-			}
-			else if (currentNode->fScore < currentEdgeEnd->fScore)
-			{//Otherwise if the f score is less than the node at the end of the edge's f score...
-					//Set the nodes g score to be the g score calculated earlier
-					//Set its g score to be the g score calculated earlier
+				else if (currentNode->fScore < currentEdgeEnd->fScore)
+				{//Otherwise if the f score is less than the node at the end of the edge's f score...
+						//Set the nodes g score to be the g score calculated earlier
+						//Set its g score to be the g score calculated earlier
 					currentEdgeEnd->gScore = gScore;
 					//Set the nodes h score to be the h score calculated earlier
 					currentEdgeEnd->hScore = hScore;
@@ -99,7 +94,9 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 					//Set its previous to be the current node
 					//Set the nodes previous to be the iterator
 					currentEdgeEnd->previous = currentNode;
-			}//end if statement
+				}
+			}
+			//end if statement
 		}//end loop
 	}//end loop
 	return path;
