@@ -115,11 +115,11 @@ void NodeGraph::drawNode(Node* node, int color)
 	sprintf_s(buffer, "%.0f", node->gScore);
 
 	//Draw the circle for the outline
-	DrawCircle((int)node->position.x, (int)node->position.y, 8, GetColor(color));
+	DrawCircle((int)node->position.x, (int)node->position.y, 16, GetColor(color));
 	//Draw the inner circle
-	DrawCircle((int)node->position.x, (int)node->position.y, 7, BLACK);
+	DrawCircle((int)node->position.x, (int)node->position.y, 14, BLACK);
 	//Draw the text
-	DrawText(buffer, (int)node->position.x, (int)node->position.y, 12, RAYWHITE);
+	DrawText(buffer, (int)node->position.x, (int)node->position.y, 24, RAYWHITE);
 }
 
 void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)

@@ -1,26 +1,20 @@
-#include "Pac.h"
+#include "AdvanceGhost.h"
 #include "Maze.h"
 #include "Wall.h"
-#include "raylib.h"
-
-Pac::Pac(float x, float y, float maxSpeed)
-	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
+#include "Collectable.h"
+AdvanceGhost::AdvanceGhost(float x, float y, float speed, int color, Maze* maze)
+	: Ghost(x, y, speed, color, maze)
 {
-	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
-	addBehavior(m_keyboardBehavior);
+
 }
 
-Pac::~Pac()
+AdvanceGhost::~AdvanceGhost()
 {
-	delete m_keyboardBehavior;
+	Ghost::~Ghost();
+
 }
 
-void Pac::draw()
-{
-	Agent::draw();
-}
-
-void Pac::onCollision(Actor* other)
+void AdvanceGhost::onCollision(Actor* other)
 {
 	if (Wall* wall = dynamic_cast<Wall*>(other)) {
 		MathLibrary::Vector2 halfTile = { Maze::TILE_SIZE / 2.0f, Maze::TILE_SIZE / 2.0f };
@@ -34,7 +28,8 @@ void Pac::onCollision(Actor* other)
 		setWorldPostion(tilePosition);
 
 		setVelocity({ 0, 0 });
-	}else if (Collectable* collectable = dynamic_cast<Collectable*>(other)) 
+	}
+	else if (Collectable* collectable = dynamic_cast<Collectable*>(other))//change position of the collectable to a new node
 	{
 		//gets a close random position for the next position
 		float x = (rand() % Maze::WIDTH) * Maze::TILE_SIZE;

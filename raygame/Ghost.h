@@ -27,10 +27,11 @@ public:
 	/// </summary>
 	/// <param name="target">The new target</param>
 	void setTarget(Actor* target);
+protected:
+	Maze* m_maze;
 
 private:
 	SeekPathBehavior* m_pathfindBehavior;
-	Maze* m_maze;
 
 	Actor* m_target = nullptr;
 };

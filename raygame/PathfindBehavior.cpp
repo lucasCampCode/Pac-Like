@@ -42,7 +42,7 @@ void PathfindBehavior::update(Agent* owner, float deltaTime)
 	MathLibrary::Vector2 steeringForce = desiredVelocity - owner->getVelocity();
 
 	//Apply the force
-	owner->setVelocity(steeringForce);
+	owner->setVelocity(desiredVelocity);
 }
 
 void PathfindBehavior::draw(Agent* owner)

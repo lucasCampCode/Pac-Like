@@ -3,7 +3,8 @@
 #include "NodeGraph.h"
 #include "Wall.h"
 #include "Pac.h"
-#include "Ghost.h"
+#include "Collectable.h"
+#include "AdvanceGhost.h"
 #include <Vector2.h>
 
 /// <summary>
@@ -20,7 +21,7 @@ public:
 	enum class TileKey {
 		OPEN,
 		WALL,
-		MUD,
+		COLLECTABLE,
 		GHOST
 	};
 
@@ -35,9 +36,9 @@ public:
 		NodeGraph::Node* node = nullptr;
 	};
 
-	static const int WIDTH = 56;
-	static const int HEIGHT = 62;
-	static const int TILE_SIZE = 16;
+	static const int WIDTH = 28;
+	static const int HEIGHT = 31;
+	static const int TILE_SIZE = 32;
 
 public:
 	/// <param name="map">A 2D array of TileKeys arranged height by width</param>
