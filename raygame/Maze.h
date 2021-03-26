@@ -3,8 +3,8 @@
 #include "NodeGraph.h"
 #include "Wall.h"
 #include "Pac.h"
+#include "Ghost.h"
 #include "Collectable.h"
-#include "AdvanceGhost.h"
 #include <Vector2.h>
 
 /// <summary>

@@ -29,7 +29,6 @@ void PathfindBehavior::update(Agent* owner, float deltaTime)
 			m_path.front()->gScore = 0.0f;
 			m_path.pop_front();
 		}
-		m_needPath = true;
 	}
 
 	//Find the direction

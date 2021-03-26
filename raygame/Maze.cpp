@@ -6,7 +6,8 @@ Maze::Maze(TileKey map[Maze::HEIGHT][Maze::WIDTH])
 	m_player = new Pac(
 		WIDTH / 2 * TILE_SIZE + (TILE_SIZE / 2),
 		HEIGHT / 2 * TILE_SIZE + (TILE_SIZE / 2),
-		200
+		200,
+		this
 	);
 	//Generate the map
 	generate(map);
@@ -70,7 +71,7 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		break;
 	case TileKey::GHOST:
 		tile.cost = 1.0f;
-		AdvanceGhost* ghost = new AdvanceGhost(position.x, position.y, 150.0f, 0xFF6666FF, this);
+		Ghost* ghost = new Ghost(position.x, position.y, 150.0f, 0xFF6666FF, this);
 		ghost->setTarget(m_player);
 		tile.actor = ghost;
 		addActor(tile.actor);

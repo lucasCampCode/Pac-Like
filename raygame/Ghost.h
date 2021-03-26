@@ -1,8 +1,15 @@
 #pragma once
 #include "Agent.h"
 #include "SeekPathBehavior.h"
+#include "WanderPathBehavior.h"
+#include "InRangeDecision.h"
+#include "WanderDecision.h"
+#include "seekCollectDecision.h"
+#include "seekTargetDecision.h"
+#include "CompareDesicion.h"
 
 class Maze;
+class DecisionBehavior;
 
 class Ghost : public Agent
 {
@@ -20,6 +27,9 @@ public:
 
 	virtual void onCollision(Actor* other) override;
 
+	void setCollectable(Actor* collectable);
+	Actor* getCollectable() { return m_collectable; }
+
 	/// <returns>The current target</returns>
 	Actor* getTarget();
 	/// <summary>
@@ -27,12 +37,24 @@ public:
 	/// </summary>
 	/// <param name="target">The new target</param>
 	void setTarget(Actor* target);
-protected:
+
+	SeekPathBehavior* getTargetPathFind() { return m_pathfindBehavior; }
+	SeekPathBehavior* getcollectPathFind() { return m_collectBehavior; }
+	WanderPathBehavior* getWander() { return m_wander; }
+	int collected = 0;
+private:
+
 	Maze* m_maze;
 
-private:
-	SeekPathBehavior* m_pathfindBehavior;
+	float m_speedBoost = 50.0f;
 
+	SeekPathBehavior* m_pathfindBehavior;
+	SeekPathBehavior* m_collectBehavior;
+	WanderPathBehavior* m_wander;
+	
+	DecisionBehavior* m_decision;
+
+	Actor* m_collectable = nullptr;
 	Actor* m_target = nullptr;
 };
 

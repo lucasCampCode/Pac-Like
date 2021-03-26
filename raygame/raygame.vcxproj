@@ -163,12 +163,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="AdvanceGhost.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Collectable.cpp" />
+    <ClCompile Include="CollectPathBehavior.cpp" />
+    <ClCompile Include="CompareDesicion.cpp" />
+    <ClCompile Include="DecisionBehavior.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ghost.cpp" />
+    <ClCompile Include="InRangeDecision.cpp" />
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
@@ -178,18 +181,26 @@
     <ClCompile Include="PursuePathBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
+    <ClCompile Include="seekCollectDecision.cpp" />
     <ClCompile Include="SeekPathBehavior.cpp" />
+    <ClCompile Include="seekTargetDecision.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="WanderDecision.cpp" />
+    <ClCompile Include="WanderPathBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
-    <ClInclude Include="AdvanceGhost.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="Collectable.h" />
+    <ClInclude Include="CollectPathBehavior.h" />
+    <ClInclude Include="CompareDesicion.h" />
+    <ClInclude Include="Decision.h" />
+    <ClInclude Include="DecisionBehavior.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ghost.h" />
+    <ClInclude Include="InRangeDecision.h" />
     <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="NodeGraph.h" />
@@ -198,9 +209,13 @@
     <ClInclude Include="PursuePathBehavior.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekBehavior.h" />
+    <ClInclude Include="seekCollectDecision.h" />
     <ClInclude Include="SeekPathBehavior.h" />
+    <ClInclude Include="seekTargetDecision.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Wall.h" />
+    <ClInclude Include="WanderDecision.h" />
+    <ClInclude Include="WanderPathBehavior.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

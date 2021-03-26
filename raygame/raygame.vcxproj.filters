@@ -15,6 +15,18 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Behavior Headder Files">
+      <UniqueIdentifier>{cfe62d77-827d-44ca-8b2b-2389f52be323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Source Files">
+      <UniqueIdentifier>{866f33c4-101a-497b-8c87-989d696613e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Decision Header Files">
+      <UniqueIdentifier>{1c2c05b6-3d5e-48a7-893f-cf99325aaaed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desicion Source Files">
+      <UniqueIdentifier>{d5b9bc9b-d6aa-473a-807e-4cb31a75516e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -47,9 +59,6 @@
     <ClCompile Include="Pac.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SeekBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
@@ -59,20 +68,44 @@
     <ClCompile Include="NodeGraph.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PursuePathBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SeekPathBehavior.cpp">
-      <Filter>Pac Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PathFindBehavior.cpp">
-      <Filter>Engine Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Collectable.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AdvanceGhost.cpp">
-      <Filter>Engine Source Files</Filter>
+    <ClCompile Include="PursuePathBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekPathBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderPathBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFindBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectPathBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionBehavior.cpp">
+      <Filter>Behavior Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seekCollectDecision.cpp">
+      <Filter>Desicion Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seekTargetDecision.cpp">
+      <Filter>Desicion Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InRangeDecision.cpp">
+      <Filter>Desicion Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompareDesicion.cpp">
+      <Filter>Desicion Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderDecision.cpp">
+      <Filter>Desicion Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,9 +130,6 @@
     <ClInclude Include="Wall.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SeekBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Pac.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
@@ -115,20 +145,47 @@
     <ClInclude Include="NodeGraph.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PursuePathBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SeekPathBehavior.h">
-      <Filter>Pac Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PathfindBehavior.h">
-      <Filter>Engine Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Collectable.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AdvanceGhost.h">
-      <Filter>Engine Header Files</Filter>
+    <ClInclude Include="PursuePathBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekPathBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectPathBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InRangeDecision.h">
+      <Filter>Decision Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seekTargetDecision.h">
+      <Filter>Decision Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seekCollectDecision.h">
+      <Filter>Decision Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompareDesicion.h">
+      <Filter>Decision Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderPathBehavior.h">
+      <Filter>Behavior Headder Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderDecision.h">
+      <Filter>Decision Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

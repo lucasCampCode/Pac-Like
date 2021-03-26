@@ -17,6 +17,6 @@ void Collectable::onCollision(Actor* other)
 		//get the new tile teh collectable will go to;
 		Maze::Tile tile = m_maze->getTile(MathLibrary::Vector2(x, y));
 		//set the collectable position to the new tiles position;
-		collectable->setWorldPostion(m_maze->getPosition(tile));
+		setWorldPostion(m_maze->getPosition(tile));
 	}
 }
