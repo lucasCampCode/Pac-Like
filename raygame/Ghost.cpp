@@ -11,7 +11,7 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	seekTargetDecision* seekTarget = new seekTargetDecision();
 	seekCollectDecision* collect = new seekCollectDecision();
 	WanderDecision* wander = new WanderDecision();
-	CompareDesicion* compareColleted = new CompareDesicion(collect,wander,-3);
+	CompareDesicion* compareColleted = new CompareDesicion(collect, wander,-3);
 	InRangeDecision* targetInRange = new InRangeDecision(seekTarget, compareColleted,8);
 	//set the desicion into a behavior
 	m_decision = new DecisionBehavior(targetInRange);

@@ -12,7 +12,7 @@ void WanderDecision::makeDecision(Agent* owner, float deltaTime)
 		ghost->getWander()->setEnabled(true);
 
 		if (ghost->getWander()->getNeedPath()) {
-			MathLibrary::Vector2 destination = ghost->getWander()->destination * 32;
+			MathLibrary::Vector2 destination = ghost->getWander()->destination;
 			ghost->getWander()->updatePath(owner, destination);
 		}
 		else if (ghost->getWander()->getPath().empty())
