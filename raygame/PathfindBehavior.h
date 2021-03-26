@@ -47,12 +47,14 @@ public:
 
 	int getColor() { return m_color; }
 	void setColor(int color) { m_color = color; }
-
+	std::deque<NodeGraph::Node*> getPath() { return m_path; }
+	bool getNeedPath() { return m_needPath; }
+	void setNeedPath(bool value) { m_needPath = value; }
 protected:
 	virtual MathLibrary::Vector2 findDestination(Agent* owner) = 0;
 
-private:
 	Maze* m_maze;
+private:
 	std::deque<NodeGraph::Node*> m_path;
 
 	Actor* m_target = nullptr;

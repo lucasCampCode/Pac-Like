@@ -6,7 +6,8 @@ Maze::Maze(TileKey map[Maze::HEIGHT][Maze::WIDTH])
 	m_player = new Pac(
 		WIDTH / 2 * TILE_SIZE + (TILE_SIZE / 2),
 		HEIGHT / 2 * TILE_SIZE + (TILE_SIZE / 2),
-		200
+		200,
+		this
 	);
 	//Generate the map
 	generate(map);
@@ -46,6 +47,8 @@ MathLibrary::Vector2 Maze::getPosition(Tile tile)
 	return MathLibrary::Vector2{ tile.x * TILE_SIZE + (TILE_SIZE / 2.0f), tile.y * TILE_SIZE + (TILE_SIZE / 2.0f) };
 }
 
+
+
 Maze::Tile Maze::createTile(int x, int y, TileKey key)
 {
 	// Create a new tile at the given location
@@ -61,13 +64,19 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		tile.actor = new Wall(position.x, position.y);
 		addActor(tile.actor);
 		break;
+	case TileKey::COLLECTABLE:
+		tile.cost = 0.5f;
+		tile.actor = new Collectable(position.x, position.y,this);
+		addActor(tile.actor);
+		break;
 	case TileKey::GHOST:
 		tile.cost = 1.0f;
-		Ghost* ghost = new Ghost(position.x, position.y, 200.0f, 0xFF6666FF, this);
+		Ghost* ghost = new Ghost(position.x, position.y, 150.0f, 0xFF6666FF, this);
 		ghost->setTarget(m_player);
 		tile.actor = ghost;
 		addActor(tile.actor);
 		break;
+	
 	}
 	return tile;
 }

@@ -4,6 +4,7 @@
 #include "Wall.h"
 #include "Pac.h"
 #include "Ghost.h"
+#include "Collectable.h"
 #include <Vector2.h>
 
 /// <summary>
@@ -20,7 +21,7 @@ public:
 	enum class TileKey {
 		OPEN,
 		WALL,
-		MUD,
+		COLLECTABLE,
 		GHOST
 	};
 
@@ -65,6 +66,7 @@ public:
 	/// <param name="tile">The tile to check</param>
 	/// <returns>A Vector2 with the position of the tile</returns>
 	MathLibrary::Vector2 getPosition(Tile tile);
+
 
 protected:
 	/// <summary>

@@ -3,11 +3,12 @@
 #include "Wall.h"
 #include "raylib.h"
 
-Pac::Pac(float x, float y, float maxSpeed)
-	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
+Pac::Pac(float x, float y, float maxSpeed, Maze* maze)
+	: Agent(x, y, Maze::TILE_SIZE / 3.0f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
 {
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
+	m_maze = maze;
 }
 
 Pac::~Pac()
@@ -34,5 +35,18 @@ void Pac::onCollision(Actor* other)
 		setWorldPostion(tilePosition);
 
 		setVelocity({ 0, 0 });
+	}
+	else if (Collectable* collectable = dynamic_cast<Collectable*>(other)) 
+	{
+		//gets a close random position for the next position
+		float x = (rand() % Maze::WIDTH) * Maze::TILE_SIZE;
+		float y = (rand() % Maze::HEIGHT) * Maze::TILE_SIZE;
+		//get the new tile teh collectable will go to;
+		Maze::Tile tile = m_maze->getTile(MathLibrary::Vector2(x, y));
+		//set the collectable position to the new tiles position;
+		collectable->setWorldPostion(m_maze->getPosition(tile));
+
+		setMaxSpeed(getMaxSpeed() + m_speedBoost);
+		collected += 1;
 	}
 }
